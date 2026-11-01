@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DiarioRouteImport } from './routes/diario'
+import { Route as FotosRouteImport } from './routes/fotos'
+import { Route as ReporteRouteImport } from './routes/reporte'
+import { Route as TerapiasRouteImport } from './routes/terapias'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DiarioRoute = DiarioRouteImport.update({
+  id: '/diario',
+  path: '/diario',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FotosRoute = FotosRouteImport.update({
+  id: '/fotos',
+  path: '/fotos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReporteRoute = ReporteRouteImport.update({
+  id: '/reporte',
+  path: '/reporte',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerapiasRoute = TerapiasRouteImport.update({
+  id: '/terapias',
+  path: '/terapias',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/diario': typeof DiarioRoute
+  '/fotos': typeof FotosRoute
+  '/reporte': typeof ReporteRoute
+  '/terapias': typeof TerapiasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/diario': typeof DiarioRoute
+  '/fotos': typeof FotosRoute
+  '/reporte': typeof ReporteRoute
+  '/terapias': typeof TerapiasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/diario': typeof DiarioRoute
+  '/fotos': typeof FotosRoute
+  '/reporte': typeof ReporteRoute
+  '/terapias': typeof TerapiasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/diario' | '/fotos' | '/reporte' | '/terapias'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/diario' | '/fotos' | '/reporte' | '/terapias'
+  id: '__root__' | '/' | '/diario' | '/fotos' | '/reporte' | '/terapias'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DiarioRoute: typeof DiarioRoute
+  FotosRoute: typeof FotosRoute
+  ReporteRoute: typeof ReporteRoute
+  TerapiasRoute: typeof TerapiasRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/diario': {
+      id: '/diario'
+      path: '/diario'
+      fullPath: '/diario'
+      preLoaderRoute: typeof DiarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fotos': {
+      id: '/fotos'
+      path: '/fotos'
+      fullPath: '/fotos'
+      preLoaderRoute: typeof FotosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reporte': {
+      id: '/reporte'
+      path: '/reporte'
+      fullPath: '/reporte'
+      preLoaderRoute: typeof ReporteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terapias': {
+      id: '/terapias'
+      path: '/terapias'
+      fullPath: '/terapias'
+      preLoaderRoute: typeof TerapiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DiarioRoute: DiarioRoute,
+  FotosRoute: FotosRoute,
+  ReporteRoute: ReporteRoute,
+  TerapiasRoute: TerapiasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
