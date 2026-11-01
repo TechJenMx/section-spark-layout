@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Download } from "lucide-react";
 import { Card, PageHeader } from "@/components/AppShell";
 import { recoveryDay, useRecovery } from "@/lib/recovery-store";
+import { ConsultationAssistant } from "@/components/ConsultationAssistant";
 
 export const Route = createFileRoute("/reporte")({
   head: () => ({
@@ -10,6 +11,8 @@ export const Route = createFileRoute("/reporte")({
       { name: "description", content: "Adherencia a medicamentos y evolución de síntomas para tu médico." },
       { property: "og:title", content: "Reporte médico — Recupera" },
       { property: "og:description", content: "Resumen para tu neurólogo o fisioterapeuta." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Reporte,
@@ -50,6 +53,7 @@ function Reporte() {
           ))}
         </ul>
       </Card>
+      <ConsultationAssistant />
       <div className="px-5">
         <button onClick={() => window.print()} className="flex w-full items-center justify-center gap-2 rounded-2xl bg-accent py-5 text-lg font-semibold text-accent-foreground shadow-soft">
           <Download /> Exportar reporte PDF

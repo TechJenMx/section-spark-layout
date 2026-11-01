@@ -11,6 +11,8 @@ export const Route = createFileRoute("/fotos")({
       { name: "description", content: "Captura guiada de tu rostro y comparador antes y después." },
       { property: "og:title", content: "Evolución fotográfica — Recupera" },
       { property: "og:description", content: "Compara tu progreso día a día." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Fotos,

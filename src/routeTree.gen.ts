@@ -14,6 +14,7 @@ import { Route as DiarioRouteImport } from './routes/diario'
 import { Route as FotosRouteImport } from './routes/fotos'
 import { Route as ReporteRouteImport } from './routes/reporte'
 import { Route as TerapiasRouteImport } from './routes/terapias'
+import { Route as ApiConsultaRouteImport } from './routes/api/consulta'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,11 @@ const TerapiasRoute = TerapiasRouteImport.update({
   path: '/terapias',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiConsultaRoute = ApiConsultaRouteImport.update({
+  id: '/api/consulta',
+  path: '/api/consulta',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/fotos': typeof FotosRoute
   '/reporte': typeof ReporteRoute
   '/terapias': typeof TerapiasRoute
+  '/api/consulta': typeof ApiConsultaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/fotos': typeof FotosRoute
   '/reporte': typeof ReporteRoute
   '/terapias': typeof TerapiasRoute
+  '/api/consulta': typeof ApiConsultaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,22 @@ export interface FileRoutesById {
   '/fotos': typeof FotosRoute
   '/reporte': typeof ReporteRoute
   '/terapias': typeof TerapiasRoute
+  '/api/consulta': typeof ApiConsultaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/diario' | '/fotos' | '/reporte' | '/terapias'
+  fullPaths:
+    '/' | '/diario' | '/fotos' | '/reporte' | '/terapias' | '/api/consulta'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/diario' | '/fotos' | '/reporte' | '/terapias'
-  id: '__root__' | '/' | '/diario' | '/fotos' | '/reporte' | '/terapias'
+  to: '/' | '/diario' | '/fotos' | '/reporte' | '/terapias' | '/api/consulta'
+  id:
+    | '__root__'
+    | '/'
+    | '/diario'
+    | '/fotos'
+    | '/reporte'
+    | '/terapias'
+    | '/api/consulta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +94,7 @@ export interface RootRouteChildren {
   FotosRoute: typeof FotosRoute
   ReporteRoute: typeof ReporteRoute
   TerapiasRoute: typeof TerapiasRoute
+  ApiConsultaRoute: typeof ApiConsultaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +134,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TerapiasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/consulta': {
+      id: '/api/consulta'
+      path: '/api/consulta'
+      fullPath: '/api/consulta'
+      preLoaderRoute: typeof ApiConsultaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +150,7 @@ const rootRouteChildren: RootRouteChildren = {
   FotosRoute: FotosRoute,
   ReporteRoute: ReporteRoute,
   TerapiasRoute: TerapiasRoute,
+  ApiConsultaRoute: ApiConsultaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
