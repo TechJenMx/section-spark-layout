@@ -10,6 +10,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Resumen diario de tu recuperación: medicamentos, terapia y estado." },
       { property: "og:title", content: "Inicio — Recupera" },
       { property: "og:description", content: "Resumen diario de tu recuperación." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,

@@ -11,6 +11,8 @@ export const Route = createFileRoute("/terapias")({
       { name: "description", content: "Ejercicios de rehabilitación facial con temporizador y notas." },
       { property: "og:title", content: "Terapias — Recupera" },
       { property: "og:description", content: "Ejercicios de rehabilitación con guía." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Terapias,

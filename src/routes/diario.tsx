@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check, Plus } from "lucide-react";
 import { Card, PageHeader } from "@/components/AppShell";
 import { SYMPTOMS, nowHM, useRecovery } from "@/lib/recovery-store";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/diario")({
   head: () => ({
@@ -11,6 +12,8 @@ export const Route = createFileRoute("/diario")({
       { name: "description", content: "Registra tus medicamentos y síntomas del día." },
       { property: "og:title", content: "Diario — Recupera" },
       { property: "og:description", content: "Medicamentos y síntomas diarios." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Diario,
@@ -112,6 +115,7 @@ function Diario() {
             >
               {saved ? "✓ Registro guardado" : "Guardar registro"}
             </button>
+            {saved && <Button asChild variant="outline" className="mt-3 h-auto w-full whitespace-normal py-3"><Link to="/reporte" hash="consulta">Preparar mi consulta con IA</Link></Button>}
           </Card>
         </>
       )}

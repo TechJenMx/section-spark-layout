@@ -5,22 +5,6 @@ import { createLovableAiGatewayRunIdFetch } from "./run-id.server.ts";
 // Adapted from the Gateway Responses helper; interception preserves upstream failures.
 export function createResponsesCall(request: Request, apiKey: string, messages: ModelMessage[], instructions: string,
   onResponse: (response: Response) => Promise<void>) {
-  const gateway = createLovableAiGatewayRunIdFetch();
-  const provider = createOpenAI({
-    baseURL: "https://ai.gateway.lovable.dev/v1", apiKey,
-    headers: { "Lovable-API-Key": apiKey, "X-Lovable-AIG-SDK": "vercel-ai-sdk" },
-    fetch: (input, init) => gateway.fetch(input, init),
-  });
-  // Intercept before the run-ID promise settles, so pre-stream errors keep their status.
-  const originalFetch = gateway.fetch;
-  gateway.fetch = async (input, init) => {
-    const response = await fetch(input, init);
-    await onResponse(response);
-    // Capture the issued run ID without making a second network request.
-    return response;
-  };
-  // Use the original correlation wrapper around the intercepting transport below.
-  gateway.fetch = originalFetch;
   const correlated = createLovableAiGatewayRunIdFetch();
   const originalGlobal = correlated.fetch;
   const wrappedProvider = createOpenAI({
