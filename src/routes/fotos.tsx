@@ -20,7 +20,7 @@ const poses = ["Frente", "Sonriendo", "Ojos cerrados", "Soplando"];
 
 function Fotos() {
   const { photos, addPhoto } = useRecovery();
-  const [pose, setPose] = useState(poses[0]);
+  const [pose, setPose] = useState<string>(poses[0]!);
   const [view, setView] = useState<"grid" | "compare">("grid");
   const ofPose = photos.filter((p) => p.pose === pose);
 
