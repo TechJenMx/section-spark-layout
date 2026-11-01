@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-export type Med = { id: string; name: string; dose: string; time: string; days: number; takenAt?: string };
+export type Med = { id: string; name: string; dose: string; time: string; days: number; takenAt?: string | undefined };
 export type Therapy = { id: string; name: string; minutes: number; reps: string; steps: string };
 export type SymptomLog = { date: string; pain: number; symptoms: string[]; notes: string };
 export type Photo = { id: string; date: string; pose: string; url: string };

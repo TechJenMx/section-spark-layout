@@ -73,7 +73,7 @@ function Fotos() {
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3">
-            {[ofPose[0], ofPose[ofPose.length - 1]].map((p, i) => (
+            {[ofPose[0]!, ofPose[ofPose.length - 1]!].map((p, i) => (
               <figure key={i}><img src={p.url} alt={p.date} className="aspect-[3/4] w-full rounded-xl object-cover" /><figcaption className="mt-1 text-center text-sm font-medium">{i ? "Después" : "Antes"} · {p.date}</figcaption></figure>
             ))}
           </div>
