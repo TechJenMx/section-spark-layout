@@ -14,7 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      ai_service_state: {
+        Row: {
+          id: string
+          message: string
+          status: number
+        }
+        Insert: {
+          id: string
+          message: string
+          status: number
+        }
+        Update: {
+          id?: string
+          message?: string
+          status?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
