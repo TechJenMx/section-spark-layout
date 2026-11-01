@@ -18,7 +18,7 @@ export const Route = createFileRoute("/terapias")({
 
 function Terapias() {
   const { therapies, sessionNotes, setSessionNote } = useRecovery();
-  const [activeId, setActiveId] = useState(therapies[0].id);
+  const [activeId, setActiveId] = useState(therapies[0]!.id);
   const active = therapies.find((t) => t.id === activeId)!;
   const [left, setLeft] = useState(active.minutes * 60);
   const [running, setRunning] = useState(false);

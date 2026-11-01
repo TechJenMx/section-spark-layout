@@ -19,7 +19,7 @@ const faces = ["😄", "🙂", "😐", "😕", "😣"];
 
 function Index() {
   const { meds, setMeds, therapies, logs } = useRecovery();
-  const today = logs[logs.length - 1];
+  const today = logs[logs.length - 1]!;
   const fecha = new Date().toLocaleDateString("es-MX", { weekday: "long", day: "numeric", month: "long" });
   const toggle = (id: string) =>
     setMeds(meds.map((m) => (m.id === id ? { ...m, takenAt: m.takenAt ? undefined : nowHM() } : m)));
@@ -72,8 +72,8 @@ function Index() {
         <Link to="/terapias" className="flex items-center gap-3">
           <span className="grid h-12 w-12 place-items-center rounded-2xl bg-secondary text-secondary-foreground"><Clock /></span>
           <span>
-            <span className="block font-medium">{therapies[0].name}</span>
-            <span className="text-sm text-muted-foreground">Hoy, 18:00 · {therapies[0].minutes} min</span>
+            <span className="block font-medium">{therapies[0]!.name}</span>
+            <span className="text-sm text-muted-foreground">Hoy, 18:00 · {therapies[0]!.minutes} min</span>
           </span>
         </Link>
       </Card>
