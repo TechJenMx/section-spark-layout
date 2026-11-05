@@ -440,37 +440,6 @@ https://section-spark-layout.lovable.app/
 
 El proyecto utiliza Lovable como plataforma de desarrollo y publicación.
 
----
-
-## 🔐 Seguridad y privacidad
-
-Debido a que Recupera contempla información relacionada con la salud y fotografías faciales, la protección de los datos es un aspecto fundamental.
-
-Los requerimientos de seguridad incluyen:
-
-- Autenticación de usuarios.
-- Perfiles individuales de pacientes.
-- Separación de información por paciente.
-- Protección de registros personales.
-- Políticas Row Level Security (RLS) en Supabase.
-- Almacenamiento seguro de fotografías.
-- Acceso restringido a información sensible.
-- Prevención de accesos no autorizados.
-- Consentimiento explícito para compartir información con terceros.
-
-Las fotografías faciales no deben utilizarse para entrenar modelos de inteligencia artificial ni compartirse sin consentimiento explícito.
-
----
-
-## ⚕️ Aviso médico y responsabilidad clínica
-
-Recupera es una herramienta digital de seguimiento y documentación. No constituye un sistema de diagnóstico médico ni sustituye la consulta con profesionales de la salud.
-
-La aplicación no debe recomendar modificaciones de medicamentos, dosis o tratamientos.
-
-Los medicamentos y ejercicios registrados deben seguir las indicaciones de un profesional de la salud.
-
-La información presentada tiene como finalidad facilitar el seguimiento y la comunicación entre pacientes y profesionales autorizados.
 
 ---
 
