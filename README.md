@@ -258,7 +258,6 @@ flowchart TD
 
     H --> I[Capa de servicios]
     I --> J[Supabase]
-    J --> K[Autenticación]
     J --> L[Base de datos]
     J --> M[Almacenamiento de fotografías]
 ```
@@ -297,77 +296,9 @@ Las principales entidades contempladas son:
 | Sesiones de terapia | Historial de sesiones realizadas |
 | Fotografías | Imágenes del seguimiento facial |
 
----
-
-## 📂 Estructura del proyecto
-
-La siguiente estructura es una propuesta de organización modular:
-
-```text
-section-spark-layout/
-│
-├── public/
-│
-├── src/
-│   ├── components/
-│   │   ├── ui/
-│   │   ├── layout/
-│   │   └── shared/
-│   │
-│   ├── pages/
-│   │   ├── Dashboard/
-│   │   ├── Diary/
-│   │   ├── Therapies/
-│   │   ├── Photos/
-│   │   └── Reports/
-│   │
-│   ├── hooks/
-│   ├── services/
-│   ├── types/
-│   ├── utils/
-│   │
-│   ├── App.tsx
-│   └── main.tsx
-│
-├── docs/
-│   └── screenshots/
-│
-├── package.json
-├── README.md
-└── .gitignore
-```
-
-*Esta estructura debe ajustarse a la organización real del repositorio.*
 
 ---
 
-## 🖼️ Capturas de pantalla
-
-A continuación se presenta la estructura sugerida para documentar visualmente las principales pantallas de Recupera.
-
-### Dashboard
-
-![Dashboard de Recupera](docs/screenshots/dashboard.png)
-
-### Diario de recuperación
-
-![Diario de Recupera](docs/screenshots/diario.png)
-
-### Terapias
-
-![Terapias de Recupera](docs/screenshots/terapias.png)
-
-### Galería fotográfica
-
-![Galería de Recupera](docs/screenshots/fotos.png)
-
-### Reportes
-
-![Reportes de Recupera](docs/screenshots/reportes.png)
-
-> Para visualizar las capturas en GitHub, agrega las imágenes correspondientes en la carpeta `docs/screenshots/`.
-
----
 
 ## ⚙️ Instalación y ejecución
 
